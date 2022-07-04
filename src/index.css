@@ -1,0 +1,65 @@
+body {
+  margin: 0px 100px;
+}
+
+body>header>h1 {
+  text-align: center;
+  font-size: 50px;
+  margin: 20px 0px;
+  color: orange;
+  border-bottom: 1px solid gray;
+}
+
+.board {
+  /* margin-top: 100px; */
+  border: 1px solid gray;
+  padding: 50px;
+  background-color: aliceblue;
+}
+
+.hole {
+  height: 200px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  background-size: 200px 200px;
+  background-color: white;
+}
+
+.hole:hover {
+  cursor: pointer;
+}
+
+.mouse {
+  background: transparent;
+  position: fixed;
+  top: -10px;
+  left: 0px;
+}
+
+.background {
+  background-image: url('./mouse.png');
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.result {
+  /* background-color: azure; */
+  width: fit-content;
+  font-size: 20px;
+}
+
+.bg-red {
+  background-color: rgba(255, 0, 0, 0.2) !important;
+}
+
+.bg-green {
+  background-color: rgba(0, 128, 0, 0.2) !important;
+}
