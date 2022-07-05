@@ -13,7 +13,7 @@ body>header>h1 {
 .board {
   border: 1px solid gray;
   padding: 50px;
-  background-color: aliceblue;
+  background-color: rgba(250, 235, 215, 0.622);
   flex-grow: 1;
   display: flex;
   justify-content: center;
@@ -25,11 +25,10 @@ body>header>h1 {
   height: 200px;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1px solid black;
   display: inline-block;
-  background-size: 200px 200px;
   background-color: white;
   margin: 5px;
+  box-shadow: 3px 3px rgb(250, 235, 215);
 }
 
 .hole:hover {
@@ -45,14 +44,13 @@ body>header>h1 {
 
 .background {
   background-image: url('./mouse.png');
+  background-size: 100% 100%;
 }
 
 main {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   gap: 20px;
-  /* flex-direction: column; */
 }
 
 .stat-bar {

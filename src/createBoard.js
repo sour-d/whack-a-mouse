@@ -1,13 +1,12 @@
+const registerEventsInHoles = (hole) => {
+  hole.addEventListener('mousedown', registerScoreOnClick);
+  hole.addEventListener('mouseup', removeColorOnMouseUp);
+};
+
 const createHoleElement = () => {
   const hole = document.createElement('div');
   hole.classList.add('hole');
   return hole;
-};
-
-const createBoardElement = () => {
-  const board = document.createElement('div');
-  board.classList.add('board');
-  return board;
 };
 
 const createRow = (column) => {
@@ -15,6 +14,7 @@ const createRow = (column) => {
 
   for (let currentColumn = 0; currentColumn < column; currentColumn++) {
     const holeElement = createHoleElement();
+    registerEventsInHoles(holeElement);
     row.appendChild(holeElement);
   }
 
@@ -22,12 +22,18 @@ const createRow = (column) => {
   return row;
 };
 
-const createBoard = ({ row, column }) => {
-  const boardElement = createBoardElement();
+const createBoardElement = ({ row, column }) => {
+  const board = document.createElement('div');
+  board.classList.add('board');
   for (let currentRow = 0; currentRow < row; currentRow++) {
     const rowElement = createRow(column);
-    boardElement.appendChild(rowElement);
+    board.appendChild(rowElement);
   }
-  const main = document.getElementsByTagName('main')[0];
-  main.prepend(boardElement);
+  return board;
 };
+
+const clearBoard = () => {
+  const board = document.getElementsByClassName('board')[0];
+  console.log(board);
+  board.remove();
+}

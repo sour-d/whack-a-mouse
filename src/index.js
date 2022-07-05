@@ -1,11 +1,7 @@
-const config = [
-  { totalHoles: { row: 3, column: 3 } }
-];
-
 const main = () => {
-  const { totalHoles } = config[0];
-  createBoard(totalHoles);
-  addEventsToStartButton();
-};
+  return createLevelManager();
+}
 
-window.onload = main;
+const initiateNextLevel = main();
+
+window.onload = initiateNextLevel;

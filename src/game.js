@@ -1,10 +1,10 @@
-const randomInt = () => {
+const randomInt = (limit) => {
   const number = Math.round(Math.random() * 1000);
-  return number % 9;
+  return number % limit;
 };
 
-const showMouse = () => {
-  const holeId = randomInt();
+const showMouse = (row) => {
+  const holeId = randomInt(row);
   const holes = document.getElementsByClassName('hole');
   const hole = holes[holeId];
   hole.classList.add('background');
@@ -21,7 +21,7 @@ const updateScore = (score) => {
   resultElement.innerText = score + currentScore;
 };
 
-const registerScore = (event) => {
+const registerScoreOnClick = (event) => {
   const classList = event.target.classList;
   if (classList.contains('background')) {
     classList.add('bg-green');
@@ -32,26 +32,17 @@ const registerScore = (event) => {
   updateScore(-5);
 };
 
-const removeColor = (event) => {
+const removeColorOnMouseUp = (event) => {
   event.target.classList.remove('bg-green');
   event.target.classList.remove('bg-red');
 };
 
-const registerEvents = () => {
-  const holes = document.getElementsByClassName('hole');
-  for (const hole of holes) {
-    hole.addEventListener('mousedown', registerScore);
-    hole.addEventListener('mouseup', removeColor);
-  }
-};
-
-const startGame = () => {
-  registerEvents();
-  const intervalId = setInterval(showMouse, 1000);
+const startGame = ({ totalHoles: { row, column } }) => {
+  const intervalId = setInterval(() => showMouse(row * column), 1000);
   setTimeout(() => clearInterval(intervalId), 20000);
 };
 
-const addEventsToStartButton = () => {
+const addEventsToStartButton = (config) => {
   const button = document.getElementById('start-game');
-  button.addEventListener('click', startGame);
-}
+  button.addEventListener('click', () => startGame(config));
+};
