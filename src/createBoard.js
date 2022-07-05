@@ -12,6 +12,7 @@ const createBoardElement = () => {
 
 const createRow = (column) => {
   const row = document.createElement('div');
+
   for (let currentColumn = 0; currentColumn < column; currentColumn++) {
     const holeElement = createHoleElement();
     row.appendChild(holeElement);
