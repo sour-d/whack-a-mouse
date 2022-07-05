@@ -56,7 +56,7 @@ main {
 }
 
 .stat-bar {
-  /* background-color: azure; */
+  text-align: center;
   width: 200px;
   font-size: 20px;
 }
@@ -69,17 +69,37 @@ main {
   background-color: rgba(0, 128, 0, 0.2) !important;
 }
 
+button:hover {
+  cursor: pointer;
+  font-size: 15px;
+}
+
 button {
-  background-color: #01bf1b;
-  height: 30px;
   width: 100%;
-  border: 1px solid black;
+  border: none;
   color: black;
-  font-weight: bold;
   margin: 10px 0px;
+  height: 30px;
 }
 
 button:disabled {
-  background-color: gainsboro;
-  color: gray;
+  background-color: rgba(220, 220, 220, 0.314);
+  color: rgba(128, 128, 128, 0.476);
+}
+
+.bt-green:disabled {
+  background-color: #01bf1a31;
+}
+
+.bt-green {
+  border: none;
+  background-color: #01bf1b;
+}
+
+.level,
+.score {
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
 }
