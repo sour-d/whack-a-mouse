@@ -22,14 +22,21 @@ const createRow = (column) => {
   return row;
 };
 
-const createBoardElement = ({ row, column }) => {
+const createBoardElement = ({ totalHoles: { row, column } }) => {
   const board = document.createElement('div');
-  board.classList.add('board');
   for (let currentRow = 0; currentRow < row; currentRow++) {
     const rowElement = createRow(column);
     board.appendChild(rowElement);
   }
+
+  board.classList.add('board');
   return board;
+};
+
+const createBoard = (config) => {
+  const board = createBoardElement(config);
+  const main = document.getElementsByTagName('main')[0];
+  main.prepend(board);
 };
 
 const clearBoard = () => {

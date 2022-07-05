@@ -39,7 +39,7 @@ const removeColorOnMouseUp = (event) => {
 
 const startGame = ({ totalHoles: { row, column } }) => {
   const intervalId = setInterval(() => showMouse(row * column), 1000);
-  setTimeout(() => clearInterval(intervalId), 20000);
+  setTimeout(() => clearInterval(intervalId), 3000);
 };
 
 const addEventsToStartButton = (config) => {
