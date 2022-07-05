@@ -1,6 +1,6 @@
 const randomInt = () => {
   const number = Math.round(Math.random() * 10);
-  if (number === 0 || number > 9) {
+  if (number > 8) {
     return randomInt();
   }
   return number;
@@ -8,13 +8,13 @@ const randomInt = () => {
 
 const showMouse = () => {
   const holeId = randomInt();
-  const hole = document.getElementById(holeId);
+  const holes = document.getElementsByClassName('hole');
+  const hole = holes[holeId];
   hole.classList.add('background');
-  setTimeout(() => hideMouse(holeId), 700);
+  setTimeout(() => hideMouse(hole), 700);
 };
 
-const hideMouse = (holeId) => {
-  const hole = document.getElementById(holeId);
+const hideMouse = (hole) => {
   hole.classList.remove('background');
 };
 
@@ -25,14 +25,13 @@ const updateScore = (score) => {
 };
 
 const registerScore = (event) => {
-  if (event.target.classList.contains('background')) {
-    event.target.classList.add('bg-green');
-    // event.target.classList.remove('bg-green');
+  const classList = event.target.classList;
+  if (classList.contains('background')) {
+    classList.add('bg-green');
     updateScore(10);
     return;
   }
-  event.target.classList.add('bg-red');
-  // event.target.classList.remove('bg-red');
+  classList.add('bg-red');
   updateScore(-5);
 };
 
@@ -50,6 +49,7 @@ const registerEvents = () => {
 };
 
 const startGame = () => {
+  createBoard(3, 3);
   registerEvents();
   const intervalId = setInterval(showMouse, 1000);
   setTimeout(() => clearInterval(intervalId), 30000);
