@@ -28,5 +28,5 @@ const createBoard = (row, column) => {
     boardElement.appendChild(rowElement);
   }
   const main = document.getElementsByTagName('main')[0];
-  main.append(boardElement);
+  main.prepend(boardElement);
 };
