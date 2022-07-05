@@ -22,7 +22,7 @@ const createRow = (column) => {
   return row;
 };
 
-const createBoard = (row, column) => {
+const createBoard = ({ row, column }) => {
   const boardElement = createBoardElement();
   for (let currentRow = 0; currentRow < row; currentRow++) {
     const rowElement = createRow(column);

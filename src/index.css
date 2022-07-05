@@ -76,7 +76,7 @@ button {
   border: 1px solid black;
   color: black;
   font-weight: bold;
-
+  margin: 10px 0px;
 }
 
 button:disabled {

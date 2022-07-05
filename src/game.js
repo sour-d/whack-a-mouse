@@ -1,9 +1,6 @@
 const randomInt = () => {
-  const number = Math.round(Math.random() * 10);
-  if (number > 8) {
-    return randomInt();
-  }
-  return number;
+  const number = Math.round(Math.random() * 1000);
+  return number % 9;
 };
 
 const showMouse = () => {
@@ -51,5 +48,10 @@ const registerEvents = () => {
 const startGame = () => {
   registerEvents();
   const intervalId = setInterval(showMouse, 1000);
-  setTimeout(() => clearInterval(intervalId), 30000);
+  setTimeout(() => clearInterval(intervalId), 20000);
 };
+
+const addEventsToStartButton = () => {
+  const button = document.getElementById('start-game');
+  button.addEventListener('click', startGame);
+}

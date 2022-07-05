@@ -1,6 +1,11 @@
+const config = [
+  { totalHoles: { row: 3, column: 3 } }
+];
+
 const main = () => {
-  createBoard(3, 3);
-  startGame();
+  const { totalHoles } = config[0];
+  createBoard(totalHoles);
+  addEventsToStartButton();
 };
 
 window.onload = main;
