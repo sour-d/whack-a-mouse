@@ -1,7 +1,7 @@
-const registerEventsInHoles = (hole) => {
-  hole.addEventListener('mousedown', registerScoreOnClick);
-  hole.addEventListener('mouseup', removeColorOnMouseUp);
-};
+// const registerEventsInHoles = (hole) => {
+//   hole.addEventListener('mousedown', registerScoreOnClick);
+//   hole.addEventListener('mouseup', removeColorOnMouseUp);
+// };
 
 const createHoleElement = () => {
   const hole = document.createElement('div');
@@ -14,7 +14,7 @@ const createRow = (column) => {
 
   for (let currentColumn = 0; currentColumn < column; currentColumn++) {
     const holeElement = createHoleElement();
-    registerEventsInHoles(holeElement);
+    // registerEventsInHoles(holeElement);
     row.appendChild(holeElement);
   }
 

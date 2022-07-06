@@ -40,14 +40,22 @@ class Level {
   }
 };
 
+const registerEventsInHoles = () => {
+  const holes = document.getElementsByClassName('hole');
+  for (const hole of holes) {
+    hole.addEventListener('mousedown', registerScoreOnClick);
+    hole.addEventListener('mouseup', removeColorOnMouseUp);
+  }
+};
+
 const main = () => {
   const configs = [
     { totalHoles: { row: 2, column: 2 } },
     { totalHoles: { row: 3, column: 3 } }
   ];
 
-  const level = new Level(configs, startGame);
-
+  const game = new Game();
+  const level = new Level(configs, (config) => game.start(config));
   window.onload = () => level.initiateNextLevel();
 };
 
