@@ -42,7 +42,3 @@ const startGame = ({ totalHoles: { row, column } }) => {
   setTimeout(() => clearInterval(intervalId), 3000);
 };
 
-const addEventsToStartButton = (config) => {
-  const button = document.getElementById('start-game');
-  button.addEventListener('click', () => startGame(config));
-};

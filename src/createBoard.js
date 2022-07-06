@@ -34,6 +34,7 @@ const createBoardElement = ({ totalHoles: { row, column } }) => {
 };
 
 const createBoard = (config) => {
+  // console.log(config);
   const board = createBoardElement(config);
   const main = document.getElementsByTagName('main')[0];
   main.prepend(board);

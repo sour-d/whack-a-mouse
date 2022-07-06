@@ -1,20 +1,54 @@
-const configs = [
-  { totalHoles: { row: 2, column: 2 } },
-  { totalHoles: { row: 3, column: 3 } }
-];
+class Level {
+  #levelConfigs;
+  #level;
+  #playARound;
 
-// const addEventsToLevelsButton = () => {
-//   const button = document.getElementById('next-level');
-//   button.addEventListener('click', initiateNextLevel);
-// };
+  constructor(configs, startGame) {
+    this.#levelConfigs = configs;
+    this.#playARound = startGame;
+    this.#level = -1;
+  }
 
-const createLevelManager = () => {
-  let level = 0;
-  return () => {
-    const currentConfig = configs[level];
-    if (level > 0) clearBoard();
-    createBoard(currentConfig);
-    addEventsToStartButton(currentConfig);
-    level++;
+  #increase() {
+    this.#level++;
+  }
+
+  get currentConfig() {
+    return this.#levelConfigs[this.#level];
+  }
+
+  addEventsToStartButton() {
+    const button = document.getElementById('start-game');
+    button.addEventListener('click', () => this.start());
+  };
+
+  addEventsToNextLevelButton() {
+    const button = document.getElementById('next-level');
+    button.addEventListener('click', () => this.initiateNextLevel());
+  };
+
+  initiateNextLevel() {
+    this.#increase();
+    if (this.#level > 0) clearBoard();
+    createBoard(this.currentConfig);
+    this.addEventsToStartButton(this.currentConfig);
+    this.addEventsToNextLevelButton();
+  }
+
+  start() {
+    this.#playARound(this.currentConfig);
   }
 };
+
+const main = () => {
+  const configs = [
+    { totalHoles: { row: 2, column: 2 } },
+    { totalHoles: { row: 3, column: 3 } }
+  ];
+
+  const level = new Level(configs, startGame);
+
+  window.onload = () => level.initiateNextLevel();
+};
+
+main();
