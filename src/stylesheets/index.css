@@ -43,7 +43,7 @@ body>header>h1 {
 }
 
 .background {
-  background-image: url('./mouse.png');
+  background-image: url('../res/mouse.png');
   background-size: 100% 100%;
 }
 
