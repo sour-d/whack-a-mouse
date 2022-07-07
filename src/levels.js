@@ -48,6 +48,11 @@ const registerEventsInHoles = () => {
   }
 };
 
+const removeColorOnMouseUp = (event) => {
+  event.target.classList.remove('bg-green');
+  event.target.classList.remove('bg-red');
+};
+
 const main = () => {
   const configs = [
     { totalHoles: { row: 2, column: 2 } },
