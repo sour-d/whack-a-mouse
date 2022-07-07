@@ -11,7 +11,8 @@ const addEventsToNextLevelButton = (level) => {
 const main = () => {
   const configs = [
     { totalHoles: { row: 2, column: 2 } },
-    { totalHoles: { row: 3, column: 3 } }
+    { totalHoles: { row: 3, column: 3 } },
+    { totalHoles: { row: 4, column: 4 } }
   ];
 
   const game = new Game();

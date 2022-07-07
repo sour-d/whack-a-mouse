@@ -11,21 +11,27 @@ body>header>h1 {
 }
 
 .board {
+  height: 600px;
+  width: 600px;
   border: 1px solid gray;
   padding: 50px;
   background-color: rgba(250, 235, 215, 0.622);
-  flex-grow: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
   flex-direction: column;
 }
 
+.row {
+  display: flex;
+  flex-grow: 1;
+}
+
 .hole {
-  height: 200px;
+  flex-grow: 1;
+  /* height: 200px; */
   aspect-ratio: 1;
   border-radius: 50%;
-  display: inline-block;
   background-color: white;
   margin: 5px;
   box-shadow: 3px 3px rgb(250, 235, 215);
