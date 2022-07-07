@@ -9,7 +9,7 @@ class Level {
     this.#level = -1;
   }
 
-  #increase() {
+  #incrementLevel() {
     this.#level++;
   }
 
@@ -28,10 +28,10 @@ class Level {
   };
 
   initiateNextLevel() {
-    this.#increase();
+    this.#incrementLevel();
+    if (this.#level === 0) this.addEventsToStartButton();
     if (this.#level > 0) clearBoard();
     createBoard(this.currentConfig);
-    this.addEventsToStartButton(this.currentConfig);
     this.addEventsToNextLevelButton();
   }
 
