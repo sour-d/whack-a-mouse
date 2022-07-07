@@ -38,20 +38,7 @@ class Level {
   start() {
     this.#playARound(this.currentConfig);
   }
-};
-
-const registerEventsInHoles = () => {
-  const holes = document.getElementsByClassName('hole');
-  for (const hole of holes) {
-    hole.addEventListener('mousedown', registerScoreOnClick);
-    hole.addEventListener('mouseup', removeColorOnMouseUp);
-  }
-};
-
-const removeColorOnMouseUp = (event) => {
-  event.target.classList.remove('bg-green');
-  event.target.classList.remove('bg-red');
-};
+}
 
 const main = () => {
   const configs = [
